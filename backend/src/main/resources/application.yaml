@@ -3,7 +3,7 @@ spring:
     name: planner
   datasource:
     url: jdbc:postgresql://localhost:5432/planner
-    username: postgres
+    username: exty2k
     password:
   jpa:
     hibernate:
