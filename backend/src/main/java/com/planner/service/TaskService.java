@@ -1,7 +1,8 @@
-package com.planner.planner.service;
+package com.planner.service;
 
-import com.planner.planner.model.Task;
-import com.planner.planner.dto.TaskDTO;
+import com.planner.model.Task;
+import com.planner.dto.TaskDTO;
+import com.planner.repository.TaskRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -11,33 +12,32 @@ import java.util.concurrent.atomic.AtomicLong;
 
 @Service
 public class TaskService {
-    private final List<Task> tasks = new ArrayList<>();
-    private final AtomicLong counter = new AtomicLong();
+    private final TaskRepository taskRepository;
+
+    public TaskService(TaskRepository taskRepository) {
+        this.taskRepository = taskRepository;
+    }
 
     public List<Task> findAll() {
-        return tasks;
+        return taskRepository.findAll();
     }
 
     public Optional<Task> findById(Long id) {
-        return tasks.stream()
-                .filter(t -> t.getId().equals(id))
-                .findFirst();
+        return taskRepository.findById(id);
     }
 
     public Task create(TaskDTO dto) {
         Task task = Task.builder()
-                .id(counter.incrementAndGet())
                 .title(dto.getTitle())
                 .description(dto.getDescription())
                 .deadline(dto.getDeadline())
                 .priority(dto.getPriority())
                 .completed(false)
                 .build();
-        tasks.add(task);
-        return task;
+        return taskRepository.save(task);
     }
 
     public void delete(Long id) {
-        tasks.removeIf(t -> t.getId().equals(id));
+        taskRepository.deleteById(id);
     }
 }

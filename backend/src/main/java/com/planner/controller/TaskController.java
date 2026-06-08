@@ -1,8 +1,8 @@
-package com.planner.planner.controller;
+package com.planner.controller;
 
-import com.planner.planner.model.Task;
-import com.planner.planner.dto.TaskDTO;
-import com.planner.planner.service.TaskService;
+import com.planner.model.Task;
+import com.planner.dto.TaskDTO;
+import com.planner.service.TaskService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

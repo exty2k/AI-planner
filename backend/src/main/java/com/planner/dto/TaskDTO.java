@@ -1,4 +1,4 @@
-package com.planner.planner.dto;
+package com.planner.dto;
 
 import lombok.Getter;
 import lombok.Setter;
