@@ -1,0 +1,41 @@
+# ===== PYTHON =====
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+*.log
+
+# ===== JAVA / SPRING =====
+target/
+*.class
+*.jar
+*.war
+*.ear
+.mvn/wrapper/maven-wrapper.jar
+spring-shell.log
+application.yaml
+
+# ===== INTELLIJ IDEA =====
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# ===== VSCODE =====
+.vscode/
+
+# ===== ENVIRONMENT =====
+.env
+.env.local
+.env.*.local
+
+# ===== OS =====
+.DS_Store
+Thumbs.db

@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: planner
+  datasource:
+    url: jdbc:postgresql://localhost:5432/planner
+    username: exty2k
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+jwt:
+  secret: eW91ci1zZWNyZXQta2V5LWhlcmUtbWFrZS1pdC1sb25nLWF0LWxlYXN0LTMyLWNoYXJz
