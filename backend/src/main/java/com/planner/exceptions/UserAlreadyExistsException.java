@@ -1,7 +1,7 @@
 package com.planner.exceptions;
 
-public class UserAlreadyExistsExe extends RuntimeException {
-    public UserAlreadyExists(String message) {
+public class UserAlreadyExistsException extends RuntimeException {
+    public UserAlreadyExistsException(String message) {
         super(message);
     }
 }

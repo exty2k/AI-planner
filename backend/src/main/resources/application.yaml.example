@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: planner
+  datasource:
+    url: jdbc:postgresql://localhost:5432/planner
+    username: YOUR_DB_USERNAME
+    password: YOUR_DB_PASSWORD
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+jwt:
+  secret: YOUR_JWT_SECRET_MIN_32_CHARS

@@ -1,7 +1,7 @@
 package com.planner.exceptions;
 
-public class UserNotAuthorizedException extends RuntimeException {
-    public UserNotAuthorizedException(String message) {
+public class UserNotFoundException extends RuntimeException {
+    public UserNotFoundException(String message) {
         super(message);
     }
 }
