@@ -1,12 +1,11 @@
 package com.planner.controller;
 
-import com.planner.model.Task;
-import com.planner.dto.TaskDTO;
+import com.planner.dto.TaskResponseDTO;
+import com.planner.dto.TaskRequestDTO;
 import com.planner.service.TaskService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 
 @RestController
@@ -19,18 +18,23 @@ public class TaskController {
     }
 
     @GetMapping("/tasks")
-    public List<Task> findAll() {
+    public List<TaskResponseDTO> findAll() {
         return taskService.findAll();
     }
 
     @GetMapping("/tasks/{id}")
-    public Optional<Task> findById(@PathVariable Long id) {
+    public TaskResponseDTO findById(@PathVariable Long id) {
         return taskService.findById(id);
     }
 
     @PostMapping("/tasks")
-    public Task create(@RequestBody TaskDTO taskDTO) {
-        return taskService.create(taskDTO);
+    public TaskResponseDTO create(@RequestBody TaskRequestDTO request) {
+        return taskService.create(request);
+    }
+
+    @PutMapping("/tasks/{id}")
+    public TaskResponseDTO update(@PathVariable Long id, @RequestBody TaskRequestDTO request) {
+        return taskService.update(id, request);
     }
 
     @DeleteMapping("/tasks/{id}")

@@ -7,7 +7,7 @@ import java.time.LocalDate;
 
 @Getter
 @Setter
-public class TaskDTO {
+public class TaskRequestDTO {
     private String title;
     private String description;
     private LocalDate deadline;

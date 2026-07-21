@@ -1,13 +1,11 @@
 package com.planner.controller;
 
 import com.planner.dto.AuthResponseDTO;
+import com.planner.dto.RefreshTokenRequestDTO;
 import com.planner.dto.UserRequestDTO;
 import com.planner.service.AuthService;
 import jakarta.validation.Valid;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -21,11 +19,16 @@ public class AuthController {
 
     @PostMapping("/register")
     public AuthResponseDTO register(@Valid @RequestBody UserRequestDTO dto) {
-         return new AuthResponseDTO(authService.register(dto));
+         return authService.register(dto);
     }
 
     @PostMapping("/login")
     public AuthResponseDTO login(@Valid @RequestBody UserRequestDTO dto) {
-        return new AuthResponseDTO(authService.login(dto));
+        return authService.login(dto);
+    }
+
+    @PutMapping("/refresh")
+    public AuthResponseDTO refresh(@Valid @RequestBody RefreshTokenRequestDTO dto) {
+        return authService.refresh(dto.getRefreshToken());
     }
 }

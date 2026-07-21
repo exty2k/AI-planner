@@ -27,4 +27,8 @@ public class Task {
     private Integer priority;
 
     private Boolean completed;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 }
